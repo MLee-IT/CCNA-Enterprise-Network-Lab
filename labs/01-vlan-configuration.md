@@ -74,3 +74,24 @@ If a device cannot communicate with other devices in the expected VLAN:
 The switch should contain VLAN 10 and VLAN 20, with the appropriate access ports assigned to each VLAN.
 
 Devices connected to different VLANs should remain separated until inter-VLAN routing is configured.
+
+## Connectivity Test
+
+PC0 was configured with IP address `192.168.10.10` on VLAN 10.
+
+PC1 was configured with IP address `192.168.20.10` on VLAN 20.
+
+A ping was performed from PC0 to PC1:
+
+```text
+ping 192.168.20.10
+```
+
+The ping resulted in `Request timed out`.
+
+This result is expected becauses PC0 and PC1 are assigned to different VLANs and no inter-VLAN routing has been configured.
+
+## Result
+
+The VLAN configuration was successfully verified.
+Devices in VLAN 10 and VLAN 20 remain separated at Layer 2.
