@@ -41,3 +41,31 @@ Communication between VLAN 10 and VLAN 20 requires inter-VLAN routing.
 ## Purpose
 
 This topology demonstrates basic network segmentation using VLANs and provides the foundation for future routing and troubleshooting labs.
+
+## Inter-VLAN Routing Topology
+
+```text
+                         Router
+                    Gig0/0
+                       |
+                       |
+                    Gig0/1
+                  +--------+
+                  | Switch |
+                  +--------+
+                   /      \
+                Fa0/1    Fa0/11
+                  |        |
+                PC0       PC1
+             VLAN 10    VLAN 20
+          192.168.10.10 192.168.20.10
+```
+
+The switch-to-router connection is configured as a trunk, allowing VLAN 10 and VLAN 20 traffic to reach the router.
+
+The router uses subinterfaces to provide a default gateway for each VLAN:
+
+- VLAN 10 - `192.168.10.1`
+- VLAN 20 - `192.168.20.1`
+
+This configuration allows devices in different VLANs to communicate through the router.
